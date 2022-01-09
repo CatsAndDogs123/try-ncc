@@ -1,0 +1,31 @@
+{
+  "name": "try-ncc",
+  "version": "1.0.15",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "try-ncc": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "ncc build ./cli.js -w -o dist/",
+    "prerelease": "rimraf ./dist/",
+    "release": "ncc build ./cli.js -o ./dist/ --minify --no-cache --no-source-map-register"
+  },
+  "dependencies": {
+    "args": "^5.0.0",
+    "chalk": "^2.4.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "latest",
+    "concurrently": "^4.1.0",
+    "strip-ansi": "^5.0.0",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=12.22.0"
+  }
+}
